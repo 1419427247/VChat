@@ -1,0 +1,121 @@
+[gd_scene load_steps=7 format=3 uid="uid://cmlixkkk3oedf"]
+
+[ext_resource type="PackedScene" uid="uid://bbmkrtmdovlbd" path="res://scene/chat/chat.tscn" id="1_cbt38"]
+[ext_resource type="Script" path="res://scene/main.gd" id="1_los5d"]
+[ext_resource type="PackedScene" uid="uid://3gs8gquhllko" path="res://scene/sidebar/sidebar.tscn" id="2_dh8dy"]
+[ext_resource type="PackedScene" uid="uid://dvabw64rvk4hs" path="res://scene/config/config.tscn" id="3_5sjd5"]
+[ext_resource type="PackedScene" uid="uid://dw0yrbsgdjad5" path="res://scene/toast.tscn" id="6_nyt1q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l62he"]
+bg_color = Color(0, 0, 0, 0.313726)
+
+[node name="Main" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_los5d")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SafeMarginContainer" type="MarginContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Chat" parent="VBoxContainer/SafeMarginContainer" node_paths=PackedStringArray("main") instance=ExtResource("1_cbt38")]
+unique_name_in_owner = true
+layout_mode = 2
+main = NodePath("../../..")
+
+[node name="Sidebar" parent="VBoxContainer/SafeMarginContainer" node_paths=PackedStringArray("main") instance=ExtResource("2_dh8dy")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 1
+main = NodePath("../../..")
+
+[node name="Config" parent="VBoxContainer/SafeMarginContainer" node_paths=PackedStringArray("main") instance=ExtResource("3_5sjd5")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+main = NodePath("../../..")
+
+[node name="Toast" parent="VBoxContainer/SafeMarginContainer" instance=ExtResource("6_nyt1q")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="VirtualMarginContainer" type="MarginContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 8
+mouse_filter = 2
+
+[node name="DisclaimersPanel" type="Panel" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_l62he")
+
+[node name="PanelContainer" type="PanelContainer" parent="DisclaimersPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 31.0
+offset_top = 119.0
+offset_right = -31.0
+offset_bottom = -119.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="DisclaimersPanel/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DisclaimersPanel/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="DisclaimersPanel/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextEdit" type="Label" parent="DisclaimersPanel/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "在使用本网站提供的服务前，请您务必仔细阅读并理解本《免责声明》（以下简称“本声明”）。请您知悉，如果您选择继续访问本网站、或使用本网站提供的本服务以及通过各类方式利用本网站的行为（以下统称“本服务”），则视为接受并同意本声明全部内容。
+1.本服务仅供个人学习、学术研究目的使用，未经许可，请勿分享、传播输入及生成的文本、图片内容。您在从事与本服务相关的所有行为(包括但不限于访问浏览、利用、转载、宣传介绍)时，必须以善意且谨慎的态度行事；您确保不得利用本服务故意或者过失的从事危害国家安全和社会公共利益、扰乱经济秩序和社会秩序、侵犯他人合法权益等法律、行政法规禁止的活动，并确保自定义输入文本不包含违反法律法规、政治相关、侵害他人合法权益的内容。
+2.您确认使用本服务时输入的内容将不包含您的个人信息。您同意并承诺，在使用本服务时，不会披露任何保密、敏感或个人信息。
+3.您确认并知悉本服务生成的所有内容都是由人工智能模型生成，所以可能会出现意外和错误的情况，请确保检查事实。我们对其生成内容的准确性、完整性和功能性不做任何保证，并且其生成的内容不代表我们的态度或观点，仅为提供更多信息，也不构成任何建议或承诺。对于您根据本服务提供的信息所做出的一切行为，除非另有明确的书面承诺文件，否则我们不承担任何形式的责任。
+4.不论在何种情况下，本网站均不对由于网络连接故障，电力故障，罢工，劳动争议，暴乱，起义，骚乱，火灾，洪水，风暴，爆炸，不可抗力，战争，政府行为，国际、国内法院的命令，黑客攻击，互联网病毒，网络运营商技术调整，政府临时管制或任何其他不能合理控制的原因而造成的本服务不能访问、服务中断、信息及数据的延误、停滞或错误，不能提供或延迟提供服务而承担责任。
+5.当本服务以链接形式推荐其他网站内容时，我们并不对这些网站或资源的可用性负责，且不保证从这些网站获取的任何内容、产品、服务或其他材料的真实性、合法性。在法律允许的范围内，本网站不承担您就使用本服务所提供的信息或任何链接所引致的任何直接、间接、附带、从属、特殊、继发、惩罚性或惩戒性的损害赔偿。"
+autowrap_mode = 1
+
+[node name="AcceptButton" type="Button" parent="DisclaimersPanel/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "我已知晓"
+
+[connection signal="pressed" from="DisclaimersPanel/PanelContainer/MarginContainer/VBoxContainer/AcceptButton" to="." method="_on_accept_button_pressed"]

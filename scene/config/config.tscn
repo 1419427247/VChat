@@ -1,0 +1,188 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvabw64rvk4hs"]
+
+[ext_resource type="Script" path="res://scene/config/config.gd" id="1_jxwoy"]
+
+[node name="Config" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jxwoy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+text = "设置"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cancel" type="Button" parent="VBoxContainer/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+text = "<"
+flat = true
+
+[node name="GetTokenButton" type="Button" parent="VBoxContainer/PanelContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+text = "获取Token"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "作者"
+
+[node name="Label2" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "星夜神花"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ThemeHBoxContainer" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/ThemeHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "主题"
+
+[node name="ThemeOptionButton" type="OptionButton" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/ThemeHBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 3
+selected = 1
+popup/item_0/text = "暗色"
+popup/item_0/id = 0
+popup/item_1/text = "亮色"
+popup/item_1/id = 1
+popup/item_2/text = "Win95"
+popup/item_2/id = 2
+
+[node name="FontSizeHBoxContainer" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/FontSizeHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "字体大小"
+
+[node name="FontSizeSpinBox" type="SpinBox" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/FontSizeHBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 16.0
+max_value = 64.0
+value = 24.0
+suffix = "px"
+
+[node name="ScaleHBoxContainer" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/ScaleHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "缩放"
+
+[node name="ScaleSpinBox" type="SpinBox" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/ScaleHBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 0.1
+max_value = 5.0
+step = 0.0
+value = 1.0
+
+[node name="IPHBoxContainer" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/IPHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "服务器地址"
+
+[node name="IPEdit" type="LineEdit" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/IPHBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "http://43.134.177.245:8080"
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "令牌"
+
+[node name="TokenLineEdit" type="LineEdit" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+context_menu_enabled = false
+
+[node name="OpenAIKeyHBoxContainer" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/OpenAIKeyHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "OpenAI Key（不可用）"
+
+[node name="OpenAIKeyEdit" type="LineEdit" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/OpenAIKeyHBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="ResetToDefault" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "恢复默认设置"
+
+[connection signal="pressed" from="VBoxContainer/PanelContainer/Cancel" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/GetTokenButton" to="." method="_on_get_token_button_pressed"]
+[connection signal="item_selected" from="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/ThemeHBoxContainer/ThemeOptionButton" to="." method="_on_theme_option_button_item_selected"]
+[connection signal="value_changed" from="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/FontSizeHBoxContainer/FontSizeSpinBox" to="." method="_on_font_size_spin_box_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/ScaleHBoxContainer/ScaleSpinBox" to="." method="_on_scale_spin_box_value_changed"]
+[connection signal="text_changed" from="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/IPHBoxContainer/IPEdit" to="." method="_on_ip_edit_text_changed"]
+[connection signal="text_changed" from="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/OpenAIKeyHBoxContainer/OpenAIKeyEdit" to="." method="_on_ip_edit_text_changed"]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/ResetToDefault" to="." method="_on_reset_to_default_pressed"]

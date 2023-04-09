@@ -1,0 +1,14 @@
+res://scene/chat/chat.tscn
+res://asset/light.tres
+res://asset/dark.tres
+res://asset/win95.tres
+res://scene/chat/chat_data.gd
+res://scene/main.tscn
+res://scene/chat/bubble.tscn
+res://scene/chat/prompt.tscn
+res://scene/config/config.tscn
+res://scene/sidebar/sidebar.tscn
+res://scene/toast.tscn
+res://scene/sidebar/chat_tab.tscn
+res://test.tscn
+res://scene/main.gd

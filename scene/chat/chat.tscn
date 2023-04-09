@@ -1,0 +1,281 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbmkrtmdovlbd"]
+
+[ext_resource type="Script" path="res://scene/chat/chat.gd" id="1_1tlud"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v6umv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bcyl3"]
+
+[node name="Chat" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1tlud")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 1
+
+[node name="TitlePanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TitlePanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="MoreButton" type="Button" parent="VBoxContainer/TitlePanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+focus_mode = 0
+text = "更多"
+
+[node name="TitelLineEdit" type="LineEdit" parent="VBoxContainer/TitlePanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "无标题"
+alignment = 1
+context_menu_enabled = false
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="ConfigButton" type="Button" parent="VBoxContainer/TitlePanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+focus_mode = 0
+text = "配置"
+
+[node name="ChatPanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_v6umv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ChatPanelContainer"]
+layout_mode = 2
+
+[node name="MessagePanelContainer" type="PanelContainer" parent="VBoxContainer/ChatPanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_bcyl3")
+
+[node name="BubbleScrollContainer" type="ScrollContainer" parent="VBoxContainer/ChatPanelContainer/VBoxContainer/MessagePanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+follow_focus = true
+horizontal_scroll_mode = 3
+
+[node name="BubbleVBoxContainer" type="VBoxContainer" parent="VBoxContainer/ChatPanelContainer/VBoxContainer/MessagePanelContainer/BubbleScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 24
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ChatPanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ChatPanelContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="InputTextEdit" type="TextEdit" parent="VBoxContainer/ChatPanelContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "开始礼貌的交流吧"
+context_menu_enabled = false
+wrap_mode = 1
+draw_tabs = true
+draw_spaces = true
+scroll_smooth = true
+scroll_v_scroll_speed = 16.0
+caret_blink = true
+
+[node name="SendButton" type="Button" parent="VBoxContainer/ChatPanelContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "发送"
+
+[node name="Control" type="Control" parent="VBoxContainer/ChatPanelContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="BottomButton" type="Button" parent="VBoxContainer/ChatPanelContainer/VBoxContainer/MarginContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -56.0
+offset_top = -56.0
+offset_bottom = -25.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "↓"
+
+[node name="ConfigPanelContainer" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ConfigPanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="PanelContainer" type="PanelContainer" parent="ConfigPanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ConfigPanelContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+text = "聊天配置"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ConfigPanelContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="ConfigPanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "模型"
+
+[node name="OptionButton" type="OptionButton" parent="ConfigPanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+item_count = 1
+selected = 0
+popup/item_0/text = "GPT3.5"
+popup/item_0/id = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ConfigPanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="ConfigPanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "随机因子"
+
+[node name="TemperatureHSlider" type="HSlider" parent="ConfigPanelContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 2.0
+step = 0.1
+value = 1.0
+ticks_on_borders = true
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ConfigPanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="ConfigPanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "重复度惩罚因子"
+
+[node name="FrequencyPenaltyHSlider" type="HSlider" parent="ConfigPanelContainer/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = -2.0
+max_value = 2.0
+step = 0.1
+ticks_on_borders = true
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="ConfigPanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="ConfigPanelContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "主题重复度"
+
+[node name="PresencePenaltyHSlider" type="HSlider" parent="ConfigPanelContainer/VBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = -2.0
+max_value = 2.0
+step = 0.1
+ticks_on_borders = true
+
+[node name="SystemMessageTextEdit" type="TextEdit" parent="ConfigPanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "请用贴吧风格回复我，每段都有表情符号。"
+placeholder_text = "系统提示词"
+context_menu_enabled = false
+wrap_mode = 1
+scroll_past_end_of_file = true
+
+[node name="NewPromptButton" type="Button" parent="ConfigPanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "新建提示符"
+
+[node name="PromptScrollContainer" type="ScrollContainer" parent="ConfigPanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PromptVBoxContainer" type="VBoxContainer" parent="ConfigPanelContainer/VBoxContainer/PromptScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SubmitConfigButton" type="Button" parent="ConfigPanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "确认"
+
+[node name="MarginContainer" type="MarginContainer" parent="ConfigPanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 8
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="pressed" from="VBoxContainer/TitlePanelContainer/HBoxContainer/MoreButton" to="." method="_on_more_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/TitlePanelContainer/HBoxContainer/ConfigButton" to="." method="_on_config_button_pressed"]
+[connection signal="text_changed" from="VBoxContainer/ChatPanelContainer/VBoxContainer/MarginContainer/HBoxContainer/InputTextEdit" to="." method="_on_input_text_edit_text_changed"]
+[connection signal="text_set" from="VBoxContainer/ChatPanelContainer/VBoxContainer/MarginContainer/HBoxContainer/InputTextEdit" to="." method="_on_input_text_edit_text_set"]
+[connection signal="pressed" from="VBoxContainer/ChatPanelContainer/VBoxContainer/MarginContainer/HBoxContainer/SendButton" to="." method="_on_send_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ChatPanelContainer/VBoxContainer/MarginContainer/Control/BottomButton" to="." method="_on_bottom_button_pressed"]
+[connection signal="pressed" from="ConfigPanelContainer/VBoxContainer/NewPromptButton" to="." method="_on_new_prompt_button_pressed"]
+[connection signal="pressed" from="ConfigPanelContainer/VBoxContainer/SubmitConfigButton" to="." method="_on_submit_config_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

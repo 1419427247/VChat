@@ -1,0 +1,13 @@
+res://asset/material/bubble.tres::993f51d14bcbb445e1d0fe04d8e3e503::1680619459::res://.godot/exported/133200997/export-e314e6e949d6f6983e443a296ff2f503-bubble.res
+res://asset/light.tres::3f493561e0d10c7d7dbfe70b538c9717::1680941609::res://.godot/exported/133200997/export-c6376ced2634ac94415144806eb008d0-light.res
+res://asset/win95.tres::286154a579f1a9eeda16354e692105dc::1680941609::res://.godot/exported/133200997/export-5037892d52594218eb2034682cf13373-win95.res
+res://scene/chat/bubble.tscn::e7c3da229e1d30a7379da8dff7db3744::1680941078::res://.godot/exported/133200997/export-9a955a5f2bd68c3e8afb6333a9bc0da3-bubble.scn
+res://scene/chat/chat.tscn::8d593cc306565bd8a6c9182b44d77169::1680941168::res://.godot/exported/133200997/export-3e3c4a5e986d7bc657468e75f644622a-chat.scn
+res://scene/chat/prompt.tscn::df958a9dbec5f67e6eb5c23e19dc2db8::1680941078::res://.godot/exported/133200997/export-9dd76ede23130bf1df6771cdeef1c0fe-prompt.scn
+res://scene/config/config.tscn::8ef4882c86cc03f282c392f9845c1443::1680941774::res://.godot/exported/133200997/export-90012dbe969c2813c3cfd552a0d3700c-config.scn
+res://scene/sidebar/sidebar.tscn::0f1567faee486bd137c78e95c0b13c6c::1680941078::res://.godot/exported/133200997/export-92abd42eee69e941b52266feba06227b-sidebar.scn
+res://scene/main.tscn::495dc2a1a8860c4563f87cb0c6191a2f::1680941078::res://.godot/exported/133200997/export-fa9c8ff5b16a5ec23280afa6577b07ee-main.scn
+res://scene/toast.tscn::00e0cd63e7a9aa005c551fab8294e545::1680941078::res://.godot/exported/133200997/export-463d0d2633c41309846a5e004e4a8d20-toast.scn
+res://test.tscn::22b0a8f37b11e6f68c21c27f16dcf0fa::1680702216::res://.godot/exported/133200997/export-f0a4ea32b72b64218d23e48a955cbc61-test.scn
+res://asset/dark.tres::b1e6f44ff9342a5edbaf26ed7f6f7094::1680941609::res://.godot/exported/133200997/export-f42ab90e89be25fe7e3d476e5ebe5685-dark.res
+res://scene/sidebar/chat_tab.tscn::9a49269b74719be636809ec99001608f::1680941622::res://.godot/exported/133200997/export-3cec9c98bba244cb7225e21d814c0a9e-chat_tab.scn

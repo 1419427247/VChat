@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dqwoqlaqm5kk5"]
+
+[sub_resource type="Shader" id="Shader_17ygi"]
+code = "shader_type canvas_item;
+
+uniform vec4 color : source_color;
+
+void fragment() {
+	COLOR = COLOR * color;
+}
+"
+
+[resource]
+shader = SubResource("Shader_17ygi")
+shader_parameter/color = null

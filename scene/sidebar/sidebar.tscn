@@ -1,0 +1,124 @@
+[gd_scene load_steps=10 format=3 uid="uid://3gs8gquhllko"]
+
+[ext_resource type="Script" path="res://scene/sidebar/sidebar.gd" id="1_vbiac"]
+[ext_resource type="Texture2D" uid="uid://d4kyv1u5d0b2e" path="res://icon_128.png" id="2_q1alp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wdjpd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e71ui"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7lmye"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y2qnt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pyafi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_87epw"]
+
+[sub_resource type="GDScript" id="GDScript_ceb33"]
+script/source = "extends TextureRect
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	rotation += 0.01
+
+"
+
+[node name="Sidebar" type="Button"]
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wdjpd")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_e71ui")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7lmye")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_y2qnt")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pyafi")
+flat = true
+script = ExtResource("1_vbiac")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -232.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_87epw")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("2_q1alp")
+expand_mode = 1
+script = SubResource("GDScript_ceb33")
+
+[node name="NewChatButton" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "新建对话"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+
+[node name="TabVBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ConfigButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "配置"
+
+[node name="ExitButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "退出"
+
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/NewChatButton" to="." method="_on_new_chat_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/VBoxContainer/ConfigButton" to="." method="_on_config_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
